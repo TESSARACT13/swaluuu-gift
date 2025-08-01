@@ -4,50 +4,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For My Swaluu 💖</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Will You Be My Girlfriend?</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      margin-bottom: 40px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      margin: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    #yesBtn {
+      background-color: #ff69b4;
+      color: white;
+    }
+    #yesBtn:hover {
+      background-color: #ff1493;
+      transform: scale(1.1);
+    }
+    #noBtn {
+      background-color: #f08080;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="romantic.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-  </audio>
-
-  <div class="container">
-    <h1>💌 Happy Girlfriend's Day, Swaluu!</h1>
-    <p>I love every photo of you... but these are some of my favourites 💕</p>
-
-    <h2 style="text-align: center; margin-top: 40px;">📸 These are some of my favourite photos of you</h2>
-    <div class="gallery">
-      <div class="photo-container">
-        <img src="photo1.jpg" alt="Swaluu 1" />
-        <div class="hearts">❤️</div>
-      </div>
-      <div class="photo-container">
-        <img src="photo2.jpg" alt="Swaluu 2" />
-        <div class="hearts">💖</div>
-      </div>
-      <div class="photo-container">
-        <img src="photo3.jpg" alt="Swaluu 3" />
-        <div class="hearts">💕</div>
-      </div>
-    </div>
-
-    <h2>⏳ Countdown to Our First Date</h2>
-    <div id="countdown"></div>
-
-    <h2>💘 Why I Love You</h2>
-    <ul class="reasons">
-      <li>Your smile brightens my darkest days 😊</li>
-      <li>You always care for me no matter what 💗</li>
-      <li>You make me feel special every single day 🥰</li>
-      <li>Your voice calms my soul 🎶</li>
-      <li>I can be myself with you 😌</li>
-      <li>You’re beautiful inside and out 🌸</li>
-      <li>You're my peace and chaos in the best way 💞</li>
-    </ul>
+  <h1>Will You Be My Girlfriend? 💖</h1>
+  <div>
+    <button id="yesBtn" onclick="window.location.href='index.html'">Yes 💕</button>
+    <button id="noBtn" onclick="shrinkNo()">No 😢</button>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    let scale = 1;
+    function shrinkNo() {
+      scale -= 0.1;
+      if (scale <= 0.1) scale = 0.1;
+      document.getElementById('noBtn').style.transform = 'scale(' + scale + ')';
+    }
+  </script>
 </body>
 </html>
