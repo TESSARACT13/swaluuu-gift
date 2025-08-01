@@ -1,0 +1,128 @@
+body {
+  background: linear-gradient(135deg, #fff0f5, #ffe6f0, #ffd6e8);
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 40px;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* 🌸 Floating hearts animation */
+.hearts::before, .hearts::after {
+  content: '💗 💖 💘 💞 💕 💓';
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  animation: float 20s linear infinite;
+  font-size: 30px;
+  color: pink;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-100%) rotate(360deg); }
+}
+
+.fade-in {
+  animation: fadeIn 2s ease-in-out forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 650px;
+  margin: 20px auto;
+  box-shadow: 0 0 25px #fbb6ce;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  font-size: 26px;
+  color: #d63384;
+}
+
+.button-box {
+  margin-top: 20px;
+}
+
+button {
+  padding: 14px 30px;
+  margin: 10px;
+  font-size: 18px;
+  background-color: #ff66a3;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #e05592;
+  transform: scale(1.1);
+}
+
+.note {
+  font-size: 20px;
+  margin: 20px 0;
+  color: #444;
+}
+
+.celebrate {
+  font-size: 24px;
+  color: #d63384;
+  margin-bottom: 20px;
+  animation: popIn 2s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.gallery img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 0 12px #f08cb1;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.08);
+}
+
+#countdown {
+  font-size: 22px;
+  color: #d63384;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.date {
+  font-size: 16px;
+  color: #555;
+}
+
+.hidden {
+  display: none;
+}
