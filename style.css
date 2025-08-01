@@ -1,128 +1,65 @@
+
 body {
-  background: linear-gradient(135deg, #fff0f5, #ffe6f0, #ffd6e8);
+  margin: 0;
   font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #ffdde1, #ee9ca7);
   color: #333;
   text-align: center;
-  padding: 40px;
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* 🌸 Floating hearts animation */
-.hearts::before, .hearts::after {
-  content: '💗 💖 💘 💞 💕 💓';
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  animation: float 20s linear infinite;
-  font-size: 30px;
-  color: pink;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  100% { transform: translateY(-100%) rotate(360deg); }
-}
-
-.fade-in {
-  animation: fadeIn 2s ease-in-out forwards;
-  opacity: 0;
-}
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 650px;
-  margin: 20px auto;
-  box-shadow: 0 0 25px #fbb6ce;
-  transition: all 0.3s ease;
-}
-
-h1 {
-  font-size: 26px;
-  color: #d63384;
-}
-
-.button-box {
-  margin-top: 20px;
-}
-
-button {
-  padding: 14px 30px;
-  margin: 10px;
-  font-size: 18px;
-  background-color: #ff66a3;
-  border: none;
-  border-radius: 10px;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: #e05592;
-  transform: scale(1.1);
-}
-
-.note {
-  font-size: 20px;
-  margin: 20px 0;
-  color: #444;
-}
-
-.celebrate {
-  font-size: 24px;
-  color: #d63384;
-  margin-bottom: 20px;
-  animation: popIn 2s ease-out;
-}
-
-@keyframes popIn {
-  0% { transform: scale(0.5); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  padding: 40px;
 }
 
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.photo-container {
+  position: relative;
 }
 
 .gallery img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 0 12px #f08cb1;
-  transition: transform 0.3s ease;
+  max-width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
 }
 
 .gallery img:hover {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
-#countdown {
-  font-size: 22px;
-  color: #d63384;
-  margin-top: 20px;
-  font-weight: bold;
+.hearts {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: floatHearts 2s ease-in-out infinite;
+  font-size: 24px;
 }
 
-.date {
-  font-size: 16px;
-  color: #555;
+@keyframes floatHearts {
+  0% { transform: translateX(-50%) translateY(0); opacity: 1; }
+  50% { transform: translateX(-50%) translateY(-15px); opacity: 0.7; }
+  100% { transform: translateX(-50%) translateY(0); opacity: 1; }
 }
 
-.hidden {
-  display: none;
+ul.reasons {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+ul.reasons li {
+  background: #fff0f6;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
 }

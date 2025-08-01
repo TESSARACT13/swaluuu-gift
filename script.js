@@ -1,39 +1,23 @@
 
-const yesBtn = document.getElementById('yesBtn');
-const noBtn = document.getElementById('noBtn');
-const loveContent = document.getElementById('loveContent');
-let noBtnSize = 16;
+const targetDate = new Date("June 26, 2026 00:00:00").getTime();
 
-yesBtn.onclick = () => {
-  loveContent.classList.remove('hidden');
-};
-
-noBtn.onclick = () => {
-  noBtnSize -= 1;
-  if (noBtnSize > 5) {
-    noBtn.style.fontSize = noBtnSize + "px";
-  } else {
-    noBtn.innerText = "Say Yes 🥹";
-  }
-};
-
-function countdown() {
-  const countDate = new Date("June 26, 2026 00:00:00").getTime();
+function updateCountdown() {
   const now = new Date().getTime();
-  const gap = countDate - now;
+  const distance = targetDate - now;
 
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
+  if (distance < 0) {
+    document.getElementById("countdown").innerHTML = "🎉 It's our first date today!";
+    return;
+  }
 
-  const days = Math.floor(gap / day);
-  const hours = Math.floor((gap % day) / hour);
-  const minutes = Math.floor((gap % hour) / minute);
-  const seconds = Math.floor((gap % minute) / second);
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const secs = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById('countdown').innerText =
-    `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  document.getElementById("countdown").innerHTML =
+    `❤️ ${days}d ${hours}h ${mins}m ${secs}s left`;
 }
 
-setInterval(countdown, 1000);
+setInterval(updateCountdown, 1000);
+updateCountdown();
